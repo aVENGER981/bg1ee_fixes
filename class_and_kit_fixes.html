@@ -20,20 +20,24 @@
   <h2>Table of Contents</h2>
   <div class="section">
     <ul>
-      <li><a href="#Class_fixes"><b>Class Fixes</b></a></li>
+      <li><a href="#Class_fixes"><b>Class Fixes</b></a>      
       <ul>
+        <li><a href="#General_Class_Fixes">General Class Fixes</a></li>
         <li><a href="#Barbarian">Barbarian</a></li>
         <li><a href="#Monk">Monk</a></li>
-      </ul></li>
+       </ul></li>
     </ul>
+<!--
     <ul>
-      <li><a href="#Fighter_Kits_Fixes"><b>Fighter Kit Fixes</b></a>
+      <li>General Kit Fixes</li>
+      <li><b>Fighter Kit Fixes</b>
       <ul>
-        <li><a href="#Berserker">Berserker</a></li>
-        <li><a href="#Kensai">Kensai</a></li>
-        <li><a href="#Wizard_Slayer">Wizard_Slayer</a></li>
+        <li>Berserker</li>
+        <li>Kensai</li>
+        <li>Wizard Slayer</li>
       </ul></li>
     </ul>
+-->
   </div>
 
 
@@ -44,20 +48,67 @@
   <div class="section">
     <p>The bugfixes listed below apply to the core classes of Baldur's Gate 2.</p>
 
+
+  <h3><a id="General_Class_Fixes">General Class Fixes</a></h3>
+    <br />
+    <span class="item-title"><a name="Weapon_Proficiency_Fixes">Weapon Proficiency Fixes</a></span>
+    <div class="item">
+    <b>Game Behavior at Present</b>
+    <p>There are a few errors with classes being unable to put the correct amount of points in certain weapon proficiencies:</p>
+    <ul>
+      <li>Fighter-Mage-Clerics and Cleric-Rangers are can only put 1 point in Two-Handed Weapon Style</li>
+      <li>Fighter-Druids, Fighter-Mage-Clerics and Cleric-Rangers can only put 2 points in Two Weapon Style</li>
+    </ul>
+    <b>Correct Game Behavior</b>
+    <ul>
+      <li>Fighter-Mage-Clerics and Cleric-Rangers should be able to put 2 points in Two-Handed Weapon Style</li>
+      <li>Fighter-Druids, Fighter-Mage-Clerics and Cleric-Rangers should be able to put 3 points in Two Weapon Style</li>
+    </ul>
+    <i>Files altered: weapprof.2da</i>
+    </div>
+
+
   <h3><a id="Barbarian">Barbarian</a></h3>
+    <br />
     <span class="item-title"><a name="Barbarian_Rage">Barbarian Rage</a></span>
-    <br />
-    <br />
-    <b>Current Behaviour</b>
+    <div class="item">
+    <b>Game Behavior at Present</b>
     <p>Barbarian Rage is imposing a -2 penalty to saves against spells. Sleep and stun immunities are not documented in the kit description. This ability does not suppress the portrait icons, visual animations and strings for all effects that it protects against (chaos, charm, confusion, fear, hold, level drain, rigid thinking, sleep, stun). Barbarian Rage isn't flagged as a non-magical ability which makes it possible for Dead/Wild Magic zones to affect it.</p>
-    <br />
-    <b>Desired Behaviour</b>
-    <br />
+    <b>Correct Game Behavior</b>
     <p>Barbarian Rage should grant a +2 bonus to saves against spells. Sleep and stun immunities should be documented in the kit description. This ability should suppress the portrait icons, visual animations and strings for all effects that it protects against (chaos, charm, confusion, fear, hold, level drain, rigid thinking, sleep, stun). Barbarian Rage should be flagged as a non-magical ability in order to prevent Dead/Wild Magic zones from affecting it.</p>
     <i>Files altered: spcl152.spl</i>
     </div>
 
 
+    <span class="item-title"><a name="Movement_Bonus">Movement Bonus</a></span>
+    <div class="item">
+    <b>Game Behavior at Present</b>
+    <p>The innate movement bonus that Barbarians receive could be negated by spell effects such as free action.</p>
+    <b>Correct Game Behavior</b>
+    <p>The innate movement bonus that Barbarians receive should not be negated by spell effects such as free action.</p>
+    <i>Files altered: spcl151.spl</i>
+    </div>
+
+
+  <h3><a id="Monk">Monk</a></h3>
+    <br />
+    <span class="item-title"><a name="Movement_Bonus">Movement Bonus</a></span>
+    <div class="item">
+    <b>Game Behavior at Present</b>
+    <p>The innate movement bonus that Monks receive could be negated by spell effects such as free action. A monk under the effects of free action when leveling up could miss their speed boost permanently.</p>
+    <b>Correct Game Behavior</b>
+    <p>The innate movement bonus that Monks receive should not be negated by spell effects such as free action. A monk under the effects of free action when leveling up should not miss their speed boost.</p>
+    <i>Files altered: spcl812.spl, spcl813.spl</i>
+    </div>
+
+    <span class="item-title"><a name="Unarmed_attack_THAC0_and_damage_values">Unarmed attack THAC0 and damage values</a></span>
+    <div class="item">
+    <b>Game Behavior at Present</b>
+    <p>At levels 6-8, monks are receiving a spurious +1 THAC0 bonus. They are missing 1 point of damage and THAC0 at levels 15-17. The 'fist' items that give monks their unarmed attacks are unnamed.</p>
+    <b>Correct Game Behavior</b>
+    <p>At levels 6-8, monks should not be receiving a spurious +1 THAC0 bonus. They should receive an additonal point of THAC0 and damage at levels 15-17. The 'fist' items that give monks their unarmed attacks should be named as such.</p>
+    <i>Files altered: mfist3.itm, mfist4.itm, mfist5.itm, mfist6.itm, mfist7.itm, mfist8.itm</i>
+    </div>
 
 
   </div>
