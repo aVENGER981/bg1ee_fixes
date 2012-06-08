@@ -17,39 +17,36 @@
 
 
   <!-- ================== Table of Contents ================== -->
-  <h2>Table of Contents</h2>
+  <h1>Table of Contents</h1>
   <div class="section">
-    <ul>
-      <li><a href="#Class_fixes"><b>Class Fixes</b></a>      
+      <a href="#Class_Fixes"><b>Class Fixes</b></a>
       <ul>
         <li><a href="#General_Class_Fixes">General Class Fixes</a></li>
         <li><a href="#Barbarian">Barbarian</a></li>
         <li><a href="#Monk">Monk</a></li>
-       </ul></li>
-    </ul>
-<!--
-    <ul>
-      <li>General Kit Fixes</li>
-      <li><b>Fighter Kit Fixes</b>
+       </ul>
+      <a href="#Kit_Fixes"><b>Kit Fixes</b></a>
       <ul>
-        <li>Berserker</li>
-        <li>Kensai</li>
-        <li>Wizard Slayer</li>
+        <li><a href="#General_Kit_Fixes">General Kit Fixes</a></li>
+        <li><a href="#Fighter_Kit_Fixes">Fighter Kit Fixes</a>
+      <ul>
+         <li><a href="#Berserker">Berserker</a></li>
+         <li><a href="#Kensai">Kensai</a></li>
+         <li><a href="#Wizard_Slayer">Wizard Slayer</a></li>
       </ul></li>
     </ul>
--->
   </div>
 
 
 
 
   <!-- ================== Class Fixes ================== -->
-  <h2><a id="Class_Fixes">Class Fixes</a></h2>
+  <h1><a id="Class_Fixes">Class Fixes</a></h1>
   <div class="section">
     <p>The bugfixes listed below apply to the core classes of Baldur's Gate 2.</p>
+    </div>
 
-
-  <h3><a id="General_Class_Fixes">General Class Fixes</a></h3>
+  <h2><a id="General_Class_Fixes">General Class Fixes</a></h2>
     <br />
     <span class="item-title"><a name="Weapon_Proficiency_Fixes">Weapon Proficiency Fixes</a></span>
     <div class="item">
@@ -68,7 +65,7 @@
     </div>
 
 
-  <h3><a id="Barbarian">Barbarian</a></h3>
+  <h2><a id="Barbarian">Barbarian</a></h2>
     <br />
     <span class="item-title"><a name="Barbarian_Rage">Barbarian Rage</a></span>
     <div class="item">
@@ -90,7 +87,7 @@
     </div>
 
 
-  <h3><a id="Monk">Monk</a></h3>
+  <h2><a id="Monk">Monk</a></h2>
     <br />
     <span class="item-title"><a name="Movement_Bonus">Movement Bonus</a></span>
     <div class="item">
@@ -108,6 +105,61 @@
     <b>Correct Game Behavior</b>
     <p>At levels 6-8, monks should not be receiving a spurious +1 THAC0 bonus. They should receive an additonal point of THAC0 and damage at levels 15-17. The 'fist' items that give monks their unarmed attacks should be named as such.</p>
     <i>Files altered: mfist3.itm, mfist4.itm, mfist5.itm, mfist6.itm, mfist7.itm, mfist8.itm</i>
+    </div>
+
+
+  <!-- ================== Kit Fixes ================== -->
+  <h1><a id="Kit_Fixes">Kit Fixes</a></h1>
+  <div class="section">
+    <p>The bugfixes listed below apply to the various kits of Baldur's Gate 2.</p>
+
+  <h2><a id="General_Kit_Fixes">General Kit Fixes</a></h2>
+    <br />
+    <span class="item-title"><a name="Proper_kit_detection">Proper kit detection</a></span>
+    <div class="item">
+    <b>Game Behavior at Present</b>
+    <p>Due to several errors in the <b>kit.ids</b> table, many dialogues and scripts that check, for example, whether the player is a Berserker or a Morninglord of Lathander fail. In general, this manifests itself mainly in the form of dialogue not being specific to a player's kit, or missing dialogue options for special kits</p>
+    <b>Correct Game Behavior</b>
+    <p>The <b>kit.ids</b> table needs to be corrected <a href="http://forums.gibberlings3.net/index.php?showtopic=21699&view=findpost&p=201973" target="_blank">in this manner</a>. Furthermore, various joinable NPCs also need to be updated with the corrected kit values.</p>
+   
+    <i>Files altered: kit.ids, anomen6.cre, anomen7.cre, anomen8.cre, anomen9.cre, anomen10.cre, anomen12.cre, imoen.cre, imoen6.cre, imoen10.cre, imoen15.cre, imoen211.cre, imoen213.cre, haer10.cre, haer11.cre, haer13.cre, haer15.cre, haer19.cre, korgan8.cre, korgan9.cre, korgan11.cre, korgan12.cre, korgan15.cre, mazzy8.cre, mazzy9.cre, mazzy11.cre, mazzy12.cre, mazzy15.cre</i>
+    </div>
+
+
+  <h2><a id="Fighter_Kit_Fixes">Fighter Kit Fixes</a></h2>
+  <h3><a id="Berserker">Berserker</a></h3>
+    <br />
+    <span class="item-title"><a name="Enrage">Enrage</a></span>
+    <div class="item">
+    <b>Game Behavior at Present</b>
+    <p>Berserker enrage is not actually protecting against stun, despite it being in the description of the ability. Enrage provides immunities to confusion, level drain, and feeblemind but these are not documented. While in the 'cool down' period, a THAC0 penalty is being applied but it's not reflected in the character sheet. The cool down is also using the same name as the actual enrage ability, implying enrage had been cast when it was ending. Enrage does not suppress the portrait icons, visual animations and strings for all effects that it protects against (chaos, charm, confusion, fear, hold, level drain, rigid thinking, sleep, stun). The 'fatigue' ability resulting from being enraged isn't flagged as a non-magical ability which makes it possible for Dead/Wild Magic zones to affect it.</p>
+    <b>Correct Game Behavior</b>
+    <p>Berserker enrage should protect against stun, as per the description. The immunities to confusion, level drain, and feeblemind should be documented in the kit's description. The THAC0 penalty applied during the 'cool down' period should show up in the character sheet. The cool down should not be using the same name as the actual enrage ability. Enrage should suppress the portrait icons, visual animations and strings for all effects that it protects against (chaos, charm, confusion, fear, hold, level drain, rigid thinking, sleep, stun). The 'fatigue' ability resulting from being enraged should be flagged as a non-magical ability in order to prevent Dead/Wild Magic zones from affecting it.</p>
+    <i>Files altered: spcl321.spl, spcl321d.spl</i>
+    </div>
+
+
+  <h3><a id="Kensai">Kensai</a></h3>
+    <br />
+    <span class="item-title"><a name="Weapon_Speed_Bonus">Weapon Speed Bonus</a></span>
+    <div class="item">
+    <b>Game Behavior at Present</b>
+    <p>The weapon speed bonus isn't applied correctly as the application method assumes that opcode #190 is cumulative with itself (which it isn't).</p>
+    <b>Correct Game Behavior</b>
+    <p>The weapon speed bonus should be applied correctly and in accordance to the character's level, as per the kit description. This can be accomplished by adding multiple headers to spcl143.spl which can then be used apply the proper weapon speed bonuses at the corresponding levels.</p>
+    <i>Files altered: spcl143.spl</i>
+    </div>
+
+
+  <h3><a id="Wizard_Slayer">Wizard Slayer</a></h3>
+    <br />
+    <span class="item-title"><a name="Spell_failure_not_applying">Spell failure not applying to ranged attacks</a></span>
+    <div class="item">
+    <b>Game Behavior at Present</b>
+    <p>The original kit description of the Wizard Slayer states as a kit advantage: "For each successful hit on an opponent, 10% cumulative spell failure penalty is applied". However, it is only applying this effect on melee hits.</p>
+    <b>Correct Game Behavior</b>
+    <p>Either let the spell failure apply to ranged attacks as well or update the kit description in order to make it clear that it only works for melee weapons.</p>
+    <i>Files altered: spcl133.spl</i>
     </div>
 
 
