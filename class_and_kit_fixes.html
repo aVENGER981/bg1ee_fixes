@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <title>BG:EE Class and Kit Fixes</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link href="atweaks-aux-style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="title">
+    BG:EE Class and Kit Fixes
+  </div>
+  <div class="author">
+    from the BG2 Fixpack
+  </div>
+
+
+
+  <!-- ================== Table of Contents ================== -->
+  <h2>Table of Contents</h2>
+  <div class="section">
+    <ul>
+      <li><a href="#Class_fixes"><b>Class Fixes</b></a></li>
+      <ul>
+        <li><a href="#Barbarian">Barbarian</a></li>
+        <li><a href="#Monk">Monk</a></li>
+      </ul></li>
+    </ul>
+    <ul>
+      <li><a href="#Fighter_Kits_Fixes"><b>Fighter Kit Fixes</b></a>
+      <ul>
+        <li><a href="#Berserker">Berserker</a></li>
+        <li><a href="#Kensai">Kensai</a></li>
+        <li><a href="#Wizard_Slayer">Wizard_Slayer</a></li>
+      </ul></li>
+    </ul>
+  </div>
+
+
+
+
+  <!-- ================== Class Fixes ================== -->
+  <h2><a id="Class_Fixes">Class Fixes</a></h2>
+  <div class="section">
+    <p>The bugfixes listed below apply to the core classes of Baldur's Gate 2.</p>
+
+  <h3><a id="Barbarian">Barbarian</a></h3>
+    <span class="item-title"><a name="Barbarian_Rage">Barbarian Rage</a></span>
+    <br />
+    <br />
+    <b>Current Behaviour</b>
+    <p>Barbarian Rage is imposing a -2 penalty to saves against spells. Sleep and stun immunities are not documented in the kit description. This ability does not suppress the portrait icons, visual animations and strings for all effects that it protects against (chaos, charm, confusion, fear, hold, level drain, rigid thinking, sleep, stun). Barbarian Rage isn't flagged as a non-magical ability which makes it possible for Dead/Wild Magic zones to affect it.</p>
+    <br />
+    <b>Desired Behaviour</b>
+    <br />
+    <p>Barbarian Rage should grant a +2 bonus to saves against spells. Sleep and stun immunities should be documented in the kit description. This ability should suppress the portrait icons, visual animations and strings for all effects that it protects against (chaos, charm, confusion, fear, hold, level drain, rigid thinking, sleep, stun). Barbarian Rage should be flagged as a non-magical ability in order to prevent Dead/Wild Magic zones from affecting it.</p>
+    <i>Files altered: spcl152.spl</i>
+    </div>
+
+
+
+
+  </div>
+</body>
+</html>
